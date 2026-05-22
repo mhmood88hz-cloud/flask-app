@@ -15,9 +15,15 @@
                     <h2>{{ post.title }}</h2>
                     <p class="post-meta">Written by <strong>{{ post.author }}</strong></p>
                     <p class="post-content">{{ post.content }}</p>
-                    <a href="{{ url_for('update', post_id=post.id) }}" class="btn-update" style="color: blue; margin-right: 10px;">Edit Post</a>
-                    <a href="{{ url_for('delete', post_id=post.id) }}" class="btn-delete" style="color: red;">Delete Post</a>
 
+                    <div class="post-actions" style="margin-bottom: 10px;">
+                        <a href="{{ url_for('like', post_id=post.id) }}" class="btn-like" style="text-decoration: none; font-size: 1.1em; margin-right: 15px;">
+                            👍 Like ({{ post.get('likes', 0) }})
+                        </a>
+
+                        <a href="{{ url_for('update', post_id=post.id) }}" class="btn-update" style="color: blue; margin-right: 10px;">Edit Post</a>
+                        <a href="{{ url_for('delete', post_id=post.id) }}" class="btn-delete" style="color: red;">Delete Post</a>
+                    </div>
                 </article>
             {% endfor %}
         </div>

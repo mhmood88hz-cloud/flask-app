@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Welcome to Masterblog</h1>
-
+        <a href="{{ url_for('add') }}" class="btn">Add New Post</a>
         <div class="posts-list">
             {% for post in posts %}
                 <article class="post-card">
@@ -19,6 +19,7 @@
                 </article>
             {% endfor %}
         </div>
+        <a href="{{ url_for('add') }}" class="btn">Add New Post</a>
     </div>
 </body>
 </html>
